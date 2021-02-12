@@ -37,7 +37,7 @@ public class AddressBookController {
 
     @GetMapping("/books/{id}")
     AddressBook one(@PathVariable Long id) {
-
+        //return repository.findById(id).get();
         return repository.findById(id)
                 .orElseThrow(() -> new AddressBookNotFoundException(id));
     }
