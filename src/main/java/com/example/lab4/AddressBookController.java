@@ -60,13 +60,8 @@ public class AddressBookController {
         return "Failed to remove buddy";
     }
 
-//    @GetMapping("/books/print/{id}")
-//    AddressBook printBuddies(@PathVariable Long id) {
-//
-//        AddressBook book = repository.findById(id)
-//                .orElseThrow(() -> new AddressBookNotFoundException(id));
-//
-//        book.printContacts();
-//        return book;
-//    }
+    @GetMapping("/greeting")
+    String greeting() {
+        return "Hello, World";
+    }
 }
