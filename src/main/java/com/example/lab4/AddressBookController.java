@@ -57,7 +57,7 @@ public class AddressBookController {
             return "Successfully removed buddy";
         }
 
-        return "Failed to remove buddy";
+        return "Failed to remove buddyy";
     }
 
     @GetMapping("/greeting")
