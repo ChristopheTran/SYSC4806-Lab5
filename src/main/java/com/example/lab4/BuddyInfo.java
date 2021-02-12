@@ -19,13 +19,16 @@ public class BuddyInfo {
     private String name;
     private String number;
 
+    private String address;
+
     public BuddyInfo() {
 
     }
 
-    public BuddyInfo(String name, String number) {
+    public BuddyInfo(String name, String number, String address) {
         this.name = name;
         this.number = number;
+        this.address = address;
     }
 
     public Long getId() {
@@ -50,6 +53,14 @@ public class BuddyInfo {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override

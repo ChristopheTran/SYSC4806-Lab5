@@ -45,7 +45,7 @@ public class TestingWebApplicationTest {
     @Test
     public void addressBookShouldReturnMessage() throws Exception {
         AddressBook book = new AddressBook();
-        book.addBuddy(new BuddyInfo("Christophe", "123"));
+        book.addBuddy(new BuddyInfo("Christophe", "123", "123street"));
         List<AddressBook> addressBooks = new ArrayList<AddressBook>() {{add(book);}};
 
         when(addressBookRepository.findAll()).thenReturn(addressBooks);
