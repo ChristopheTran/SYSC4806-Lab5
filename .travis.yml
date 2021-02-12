@@ -3,8 +3,7 @@ deploy:
   on:
     branch: main
   provider: heroku
-  api-key:
-    $HEROKU_API_KEY
+  api-key: $HEROKU_API_KEY
   app: addressbook321
 before_install:
   - chmod +x mvnw
