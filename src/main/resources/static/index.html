@@ -1,10 +1,40 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>AddressBook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="spa.js"></script>
 </head>
 <body>
-<p>Get your greeting <a href="/greeting">here</a></p>
+    <button id="createBook" type="button">Create an Address Book!</button>
+
+    <div>
+        <p class="book-id">The ID is </p>
+    </div>
+
+    <form id="formAddBuddy" action="placeholder" method="post">
+        <p>Buddy Name: <input type="text" name="name" /></p>
+        <p>Buddy Number: <input type="text" name="number"/></p>
+        <p>Buddy Address: <input type="text" name="address" /></p>
+        <input type="submit" value="Add buddy" />
+    </form>
+
+    <div>
+        <p>List of buddies: </p>
+    </div>
+
+    <table class='table'>
+        <thead>
+            <tr>
+                <th scope='col'>Name</th>
+                <th scope='col'>Number</th>
+                <th scope='col'>Address</th>
+            </tr>
+        </thead>
+        <tbody id='bidders'>
+
+        </tbody>
+    </table>
 </body>
 </html>

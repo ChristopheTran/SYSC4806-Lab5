@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class AddressBookController {
     public final AddressBookRepository repository;
 
@@ -25,19 +26,29 @@ public class AddressBookController {
     }
 
     @PostMapping("/books/addBuddy/{id}")
-    AddressBook addBuddy(@PathVariable Long id, @RequestBody BuddyInfo buddy) {
+    BuddyInfo addBuddy(@PathVariable Long id, @RequestBody BuddyInfo buddy) {
         AddressBook book = repository.findById(id)
                 .orElseThrow(() -> new AddressBookNotFoundException(id));
 
         book.addBuddy(buddy);
-        return repository.save(book);
+        repository.save(book);
+        //return repository.save(book); This returns the address book with entire buddy list
 
-        //return "Successfully added buddy";
+        // Have to do it this way so that the buddy returned has an id value.
+//        for (BuddyInfo b : book.getAddressBook()) {
+//            if (b.getName().equals(buddy.getName())) {
+//                return b;
+//            }
+//        }
+//        return null;
+        return buddy;
     }
 
     @GetMapping("/books/{id}")
     AddressBook one(@PathVariable Long id) {
         //return repository.findById(id).get();
+        System.out.println("YOOOO");
+
         System.out.println(repository.findAll());
         return repository.findById(id)
                 .orElseThrow(() -> new AddressBookNotFoundException(id));
@@ -63,6 +74,6 @@ public class AddressBookController {
 
     @GetMapping("/greeting")
     String greeting() {
-        return "Hello, World";
+        return "Hello, World!!!!!";
     }
 }
